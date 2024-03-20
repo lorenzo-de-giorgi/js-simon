@@ -79,4 +79,4 @@ buttonGenerate.addEventListener('click', function(){
         result.innerHTML += `, i nuemri erano: ${numArray}.`;
         result.innerHTML += ` Hai indovinato ${correct} numeri!`
     })
-})
+}, {once: true});

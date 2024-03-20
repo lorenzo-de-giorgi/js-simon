@@ -41,14 +41,14 @@ buttonGenerate.addEventListener('click', function(){
             const htmlText = boxNumbers.appendChild(box);
             setTimeout(function(){
                 htmlText.classList.add('invisible');
-            }, 5000);
+            }, 30000);
         }
         // mostro gli input
         setTimeout(function(){
             let inputNumber = document.getElementById('input-numbers-ID');
             inputNumber.classList.add('d-flex');
             document.getElementById('check').classList.remove('d-none');
-        }, 5000);
+        }, 30000);
     }
 
             // mostro il bottone per controllare le risposte

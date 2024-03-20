@@ -11,8 +11,6 @@ buttonGenerate.addEventListener('click', function(){
     // creo la funzione per la generazione dei numeri
     function genNum(min, max){
         return Math.floor(Math.random() * (max - min + 1) ) + min;
-        drawBox(numero);
-        // appendo il box
     }
     // funzione che crea i box dove andranno inseriti i numeri
     function drawBox(content){
@@ -52,23 +50,33 @@ buttonGenerate.addEventListener('click', function(){
             document.getElementById('check').classList.remove('d-none');
         }, 5000);
     }
-    // mostro il bottone per controllare le risposte
-    let checkButton = document.getElementById('check');
-    // prendo tutte le value degli input inseriti dall'utente
-    let num1 = document.getElementById('num1').value;
-    let num2 = document.getElementById('num2').value;
-    let num3 = document.getElementById('num3').value;
-    let num4 = document.getElementById('num4').value;
-    let num5 = document.getElementById('num5').value;
 
+            // mostro il bottone per controllare le risposte
+            let checkButton = document.getElementById('check');
 
     // funzione per controllare i numeri uguali tra le due array
     checkButton.addEventListener('click', function(){
+        // prendo tutte le value degli input inseriti dall'utente
+        let num1 = document.getElementById('num1').value;
+        let num2 = document.getElementById('num2').value;
+        let num3 = document.getElementById('num3').value;
+        let num4 = document.getElementById('num4').value;
+        let num5 = document.getElementById('num5').value;
         // pusho le value nell'array
-        userNumArray.push(num1);
+        userNumArray.push(parseInt(num1), parseInt(num2), parseInt(num3), parseInt(num4), parseInt(num5));
         // stampo in console l'array aggiornata
         console.log(userNumArray);
-
-        console.log(compareArrays(numArray, userNumArray));
+        // confronto le due array
+        let correct = 0;
+        let result = document.getElementById('result');
+        for (let i = 0; i < numArray.length; i++){
+            if(numArray.includes(userNumArray[i])){
+                correct++;
+                result.innerHTML += ` ${userNumArray[i]}, i numeri scritti erano: ${numArray}`
+            }
+        }
+        result.innerHTML = `I numeri inseriti da te sono: ${userNumArray}`;
+        result.innerHTML += `, i nuemri erano: ${numArray}.`;
+        result.innerHTML += ` Hai indovinato ${correct} numeri!`
     })
 })

@@ -43,14 +43,32 @@ buttonGenerate.addEventListener('click', function(){
             const htmlText = boxNumbers.appendChild(box);
             setTimeout(function(){
                 htmlText.classList.add('invisible');
-            }, 30000);
+            }, 5000);
         }
         // mostro gli input
         setTimeout(function(){
             let inputNumber = document.getElementById('input-numbers-ID');
             inputNumber.classList.add('d-flex');
-        }, 30000);
+            document.getElementById('check').classList.remove('d-none');
+        }, 5000);
     }
-    
+    // mostro il bottone per controllare le risposte
+    let checkButton = document.getElementById('check');
+    // prendo tutte le value degli input inseriti dall'utente
+    let num1 = document.getElementById('num1').value;
+    let num2 = document.getElementById('num2').value;
+    let num3 = document.getElementById('num3').value;
+    let num4 = document.getElementById('num4').value;
+    let num5 = document.getElementById('num5').value;
 
+
+    // funzione per controllare i numeri uguali tra le due array
+    checkButton.addEventListener('click', function(){
+        // pusho le value nell'array
+        userNumArray.push(num1);
+        // stampo in console l'array aggiornata
+        console.log(userNumArray);
+
+        console.log(compareArrays(numArray, userNumArray));
+    })
 })
